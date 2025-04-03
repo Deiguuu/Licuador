@@ -1,4 +1,6 @@
 var estadoLicuadora = "apagada";
+var sonidoLicuadora = document.getElementById("blender-sound");
+var botonLicuadora = document.getElementById("blender-button-sound");
 var licuadora = document.getElementById("blender");
 
 function controlarLicuadora() {
@@ -8,7 +10,19 @@ function controlarLicuadora() {
         console.log("me prendiste");
     } else {
         estadoLicuadora = "apagada"
+        hacerBrrBrr();
         licuadrora.classList.remove ("active");
         console.log("me apagaste");
+    }
+}
+
+function hacerBrrBrr(){
+    if(sonidoLicuadora.paused){
+        sonidoLicuadora.play();
+        botonLicuadora.play();
+    } else {
+        botonLicuadora.play();
+        sonidoLicuadora.pause();
+        sonidoLicuadora.currentTime = 0;
     }
 }
