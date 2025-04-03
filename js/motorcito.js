@@ -4,20 +4,21 @@ var botonLicuadora = document.getElementById("blender-button-sound");
 var licuadora = document.getElementById("blender");
 
 function controlarLicuadora() {
-    if(estadoLicuadora =="apagada") {
-        estadoLicuadora == "encendida";
+    if (estadoLicuadora === "apagada") {
+        estadoLicuadora = "encendida";  // Se corrige la asignación
         licuadora.classList.add("active");
-        console.log("me prendiste");
-    } else {
-        estadoLicuadora = "apagada"
+        console.log("Me prendiste");
         hacerBrrBrr();
-        licuadrora.classList.remove ("active");
-        console.log("me apagaste");
+    } else {
+        estadoLicuadora = "apagada";
+        licuadora.classList.remove("active");  // Se corrige "licuadrora" -> "licuadora"
+        console.log("Me apagaste");
+        hacerBrrBrr();
     }
 }
 
-function hacerBrrBrr(){
-    if(sonidoLicuadora.paused){
+function hacerBrrBrr() {
+    if (sonidoLicuadora.paused) {
         sonidoLicuadora.play();
         botonLicuadora.play();
     } else {
